@@ -1,0 +1,20 @@
+/* =========================================
+   FARM-FI : RESPONSIVE DESIGN (HP & TABLET)
+   ========================================= */
+
+@media(max-width: 768px) {
+    /* Merapikan Header & Navigasi di Layar Kecil */
+    header { flex-direction: column; gap: 15px; text-align: center; }
+    nav { flex-wrap: wrap; justify-content: center; gap: 10px; }
+    
+    /* Menyesuaikan Hero Section */
+    .hero h1 { font-size: 32px; }
+    .hero-btns { flex-direction: column; padding: 0 20px; }
+    
+    /* Mengubah Form menjadi 1 Kolom ke Bawah */
+    .form-grid { grid-template-columns: 1fr; }
+    .full-width { grid-column: span 1; }
+    
+    /* Merapikan Header Grafik */
+    .dashboard-header { flex-direction: column; gap: 15px; align-items: flex-start; }
+}
