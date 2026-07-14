@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FarmFI - Real World Livestock RWA</title>
+
+<!-- Memasukkan library Chart.js untuk grafik -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Memanggil file CSS eksternal -->
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/dashboard.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">🐄 FarmFI Layer-1</a>
+    <nav>
+        <a href="marketplace.html">Marketplace</a>
+        <a href="invest.html">Invest</a>
+        <a href="farmer.html">Farmer Portal</a>
+        <a href="sell.html">Mint Asset</a>
+    </nav>
+    <button class="btn-connect" onclick="connectWallet()" id="wallet-btn">Connect Wallet</button>
+</header>
+
+<div class="container">
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Tokenizing Real Livestock Assets</h1>
+        <p>Trade, Invest, and Own Real Livestock backed by the Ikychain Layer-1 Blockchain. Bridging real-world agriculture into Web3.</p>
+        <div class="hero-btns">
+            <a href="marketplace.html" class="btn-primary">Buy Livestock</a>
+            <a href="invest.html" class="btn-outline">Become Investor</a>
+        </div>
+    </div>
+
+    <!-- Stats Dashboard -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value">18,532</div>
+            <div class="stat-label">Total Livestock</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">$25M+</div>
+            <div class="stat-label">Market Cap</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">8,241</div>
+            <div class="stat-label">Transactions</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">845</div>
+            <div class="stat-label">Verified Farmers</div>
+        </div>
+    </div>
+
+    <!-- Interactive Price Chart -->
+    <div class="dashboard-section">
+        <div class="dashboard-header">
+            <h2>Livestock Price Tracker (Oracle Data)</h2>
+            <select id="breed-select" onchange="updateChart()">
+                <option value="PO">Peranakan Ongole (PO)</option>
+                <option value="Limousin">Limousin</option>
+                <option value="Simental">Simental</option>
+            </select>
+        </div>
+        <div class="chart-container">
+            <canvas id="priceChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script>
+// Logika Connect Wallet Simulasi
+function connectWallet() {
+    const btn = document.getElementById('wallet-btn');
+    btn.innerText = "0x89...4a2";
+    btn.style.background = "#163022";
+    btn.style.border = "1px solid #18a558";
+}
+
+// Konfigurasi Data Grafik Harga
+const chartData = {
+    PO: [1100, 1300, 1450, 1550, 1600],
+    Limousin: [2100, 2400, 2600, 2750, 2800],
+    Simental: [1900, 2200, 2450, 2500, 2600]
+};
+const years = ["2022", "2023", "2024", "2025", "2026"];
+
+// Inisialisasi Chart.js
+const ctx = document.getElementById('priceChart').getContext('2d');
+let priceChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: years,
+        datasets: [{
+            label: 'Price / Head (USDT)',
+            data: chartData.PO,
+            borderColor: '#7ef0a6',
+            backgroundColor: 'rgba(126, 240, 166, 0.1)',
+            borderWidth: 3,
+            tension: 0.4,
+            fill: true,
+            pointBackgroundColor: '#18a558',
+            pointRadius: 5
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false }
+        },
+        scales: {
+            y: {
+                beginAtZero: false,
+                grid: { color: '#163022' },
+                ticks: { color: '#aaa' }
+            },
+            x: {
+                grid: { display: false },
+                ticks: { color: '#aaa' }
+            }
+        }
+    }
+});
+
+// Fungsi untuk mengganti data grafik saat dropdown dipilih
+function updateChart() {
+    const selectedBreed = document.getElementById('breed-select').value;
+    priceChart.data.datasets[0].data = chartData[selectedBreed];
+    priceChart.update();
+}
+</script>
+    <!-- Memanggil file JS eksternal -->
+    <script src="assets/js/wallet.js"></script>
+    <!-- Tambahin baris app.js di sini Bang -->
+    <script src="assets/js/app.js"></script> 
+    <script src="assets/js/chart.js"></script>
+    
+</body>
+</html>
