@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Buy Livestock - FarmFI RWA</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+<head>
+<body>
+
+<header>
+    <h2>🛒 FarmFI - Checkout</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="marketplace.html">Marketplace</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Complete Your Purchase</h1>
+    <p style="color:#aaa">Review your order details and confirm the transaction via Web3 Wallet.</p>
+
+    <div class="form-section">
+        <div class="form-grid">
+            <div>
+                <label>Wallet Connected</label>
+                <input type="text" value="0x89...4a2" class="disabled-input" disabled>
+            </div>
+            <div>
+                <label>Purpose</label>
+                <select>
+                    <option>Farming</option>
+                    <option>Breeding</option>
+                    <option>Qurban</option>
+                </select>
+            </div>
+            <div>
+                <label>Selected Breed</label>
+                <input type="text" id="buy-breed" class="disabled-input" disabled>
+            </div>
+            <div>
+                <label>Delivery Location</label>
+                <select>
+                    <option>Cisarua, West Java</option>
+                    <option>Bogor, West Java</option>
+                    <option>Self-Pickup (Farm)</option>
+                </select>
+            </div>
+            <div>
+                <label>Quantity (Heads)</label>
+                <input type="number" id="buy-qty" value="1" min="1" onchange="calculateTotal()">
+            </div>
+            <div>
+                <label>Payment Token</label>
+                <input type="text" value="USDT (Tether)" class="disabled-input" disabled>
+            </div>
+        </div>
+
+        <div class="summary-box">
+            <div class="summary-row">
+                <span>Price per head:</span>
+                <span id="price-per-head">0 USDT</span>
+            </div>
+            <div class="summary-row">
+                <span>Network Fee (Gas):</span>
+                <span>~2.5 USDT</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total Payment:</span>
+                <span id="total-price">0 USDT</span>
+            </div>
+        </div>
+
+        <button onclick="confirmPurchase()">Pay via Smart Contract</button>
+    </div>
+</div>
+
+<script>
+// Ambil data dari localStorage (kiriman dari marketplace.html)
+let basePrice = localStorage.getItem("selectedPrice") || 0;
+let selectedBreed = localStorage.getItem("selectedBreed") || "Unknown";
+
+// Tampilkan data di form
+document.getElementById("buy-breed").value = selectedBreed;
+document.getElementById("price-per-head").innerText = basePrice + " USDT";
+
+// Fungsi untuk menghitung total otomatis saat quantity diganti
+function calculateTotal() {
+    let qty = document.getElementById("buy-qty").value;
+    let total = (parseFloat(basePrice) * qty) + 2.5; // ditambah gas fee
+    document.getElementById("total-price").innerText = total + " USDT";
+}
+
+// Jalankan perhitungan awal
+calculateTotal();
+
+function confirmPurchase() {
+    alert('Calling Web3 Provider...\nPlease confirm the transaction in your wallet!');
+}
+</script>
+    <script src="assets/js/wallet.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/buy.js"></script>
+
+</body>
+</html>
