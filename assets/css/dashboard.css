@@ -1,0 +1,22 @@
+/* =========================================
+   FARM-FI : DASHBOARD STYLES (index.html)
+   ========================================= */
+
+/* Hero Section */
+.hero { text-align: center; padding: 60px 20px; background: linear-gradient(180deg, #102017 0%, #08130d 100%); border-radius: 16px; margin-bottom: 40px; border: 1px solid #163022; }
+.hero h1 { font-size: 42px; color: #7ef0a6; margin-bottom: 15px; margin-top: 0; }
+.hero p { font-size: 18px; color: #aaa; max-width: 600px; margin: 0 auto 30px auto; line-height: 1.6; }
+.hero-btns { display: flex; justify-content: center; gap: 15px; }
+.btn-primary { background: #18a558; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; transition: 0.3s; }
+.btn-outline { background: transparent; color: #7ef0a6; border: 2px solid #18a558; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; transition: 0.3s; }
+
+/* Stats Dashboard */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 40px; }
+.stat-card { background: #102017; padding: 20px; border-radius: 12px; text-align: center; border: 1px solid #163022; }
+.stat-value { font-size: 28px; font-weight: bold; color: #7ef0a6; margin-bottom: 5px; }
+.stat-label { color: #aaa; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Chart Section */
+.dashboard-section { background: #102017; padding: 30px; border-radius: 12px; border: 1px solid #163022; margin-bottom: 40px; }
+.dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.chart-container { position: relative; height: 350px; width: 100%; }
