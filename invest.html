@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Invest - FarmFI - RWA</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+<body>
+
+<header>
+    <h2>🌱 FarmFI - RWA Invest</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="marketplace.html">Marketplace</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Active Farm Investments</h1>
+    <p>Fund verified farms and earn ROI backed by real livestock assets.</p>
+
+    <!-- Investment Cards -->
+    <div class="grid">
+        <div class="card">
+            <span class="badge">Verified RWA Farm</span>
+            <h2>Iky Farm</h2>
+            <p><b>Location:</b> Cisarua, West Java</p>
+            <p><b>Duration:</b> 18 Months</p>
+            <p><b>Expected ROI:</b> <span style="color:#7ef0a6;font-weight:bold;">12% APY</span></p>
+            
+            <div style="display:flex;justify-content:space-between;margin-top:15px;font-size:14px">
+                <span>Collected: 36,000 USDT</span>
+                <span>Target: 50,000 USDT</span>
+            </div>
+            <div class="progress-bg">
+                <div class="progress-fill"></div>
+            </div>
+            
+            <label>Invest Amount (USDT)</label>
+            <input type="number" placeholder="Min 100 USDT" value="500">
+            <button onclick="alert('Transaction sent to wallet!')">Invest 500 USDT</button>
+        </div>
+    </div>
+
+    <!-- Become an Investor Form -->
+    <div class="form-section">
+        <h2>Become an Investor (KYC)</h2>
+        <p style="color:#aaa;font-size:14px">Register your profile to access premium RWA investment pools.</p>
+        
+        <div class="form-grid">
+            <div>
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter your name">
+            </div>
+            <div>
+                <label>Investment Experience</label>
+                <select>
+                    <option>Beginner</option>
+                    <option>Intermediate</option>
+                    <option>Professional</option>
+                </select>
+            </div>
+            <div>
+                <label>Investment Budget (USDT)</label>
+                <input type="number" placeholder="e.g. 500">
+            </div>
+            <div>
+                <label>Risk Profile</label>
+                <select>
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+            </div>
+            <div>
+                <label>Preferred Sector</label>
+                <select>
+                    <option>Livestock</option>
+                    <option>Agriculture</option>
+                    <option>Fishery</option>
+                    <option>Renewable Energy</option>
+                </select>
+            </div>
+            <div>
+                <label>Expected ROI (%)</label>
+                <input type="number" placeholder="e.g. 10">
+            </div>
+        </div>
+        
+        <label>Connected Wallet</label>
+        <input type="text" value="0x123...abc" disabled style="background:#ddd">
+        
+        <button onclick="alert('Profile submitted successfully!')">Submit Profile</button>
+    </div>
+</div>
+    <script src="assets/js/wallet.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/invest.js"></script>
+
+</body>
+</html>
