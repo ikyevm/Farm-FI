@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Become a Farmer - FarmFI RWA</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+<body>
+
+<header>
+    <h2>🚜 FarmFI - Farmer Portal</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="invest.html">Invest</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Become a Verified Farmer</h1>
+    <p style="color:#aaa">Join the Web3 agricultural revolution. Register your farm to tokenize assets and access global funding.</p>
+
+    <div class="form-section">
+        <div class="info-box">
+            <strong>Verification Process:</strong> Your submitted documents will be reviewed by our real-world oracle agents to ensure authenticity before your farm is whitelisted on the blockchain.
+        </div>
+
+        <div class="form-grid">
+            <!-- Personal Info -->
+            <div>
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter your full name">
+            </div>
+            <div>
+                <label>Experience</label>
+                <select>
+                    <option>1 Year</option>
+                    <option>2 Years</option>
+                    <option>5 Years</option>
+                    <option>10+ Years</option>
+                </select>
+            </div>
+            <div>
+                <label>Phone Number</label>
+                <input type="tel" placeholder="+62 812 3456 7890">
+            </div>
+            <div>
+                <label>Email Address</label>
+                <input type="email" placeholder="farmer@example.com">
+            </div>
+
+            <!-- Farm Details -->
+            <div>
+                <label>Province</label>
+                <input type="text" placeholder="e.g. West Java">
+            </div>
+            <div>
+                <label>City / Regency</label>
+                <input type="text" placeholder="e.g. Bogor">
+            </div>
+            <div>
+                <label>Farm Area</label>
+                <input type="text" placeholder="e.g. 5 Hectares">
+            </div>
+            <div>
+                <label>Livestock Owned (Approx)</label>
+                <input type="number" placeholder="e.g. 25">
+            </div>
+            <div>
+                <label>Main Breed Focus</label>
+                <select>
+                    <option>Peranakan Ongole (PO)</option>
+                    <option>Limousin</option>
+                    <option>Simental</option>
+                    <option>Mixed Breeds</option>
+                </select>
+            </div>
+            <div>
+                <label>Connected Wallet</label>
+                <input type="text" value="0x123...abc" class="disabled-input" disabled>
+            </div>
+
+            <!-- Description -->
+            <div class="full-width">
+                <label>Farm Description</label>
+                <textarea placeholder="Tell us a bit about your farm's history, facilities, and vision..."></textarea>
+            </div>
+
+            <!-- Off-chain Documents -->
+            <div>
+                <label>Upload Farm License (PDF)</label>
+                <input type="file" accept=".pdf">
+            </div>
+            <div>
+                <label>Upload Farm Photos</label>
+                <input type="file" accept="image/*" multiple>
+            </div>
+        </div>
+
+        <button onclick="submitApplication()">Submit Application</button>
+    </div>
+</div>
+
+<script>
+function submitApplication() {
+    alert('Application submitted successfully!\nOur Oracle team will review your farm details within 24-48 hours.');
+}
+</script>
+    <script src="assets/js/wallet.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/farmer.js"></script>
+
+</body>
+</html>
