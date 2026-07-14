@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marketplace - FarmFI RWA</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+<body>
+
+<header>
+    <h2>🐄 FarmFI - Marketplace</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="invest.html">Invest</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Livestock RWA Marketplace</h1>
+    <p style="color:#aaa">Trade and own real livestock backed by blockchain NFTs.</p>
+
+    <!-- Filters & Categories -->
+    <div class="filters-wrapper">
+        <div class="categories">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="cow">Cow</button>
+            <button class="category-btn" data-category="goat">Goat</button>
+            <button class="category-btn" data-category="sheep">Sheep</button>
+        </div>
+        <div class="filters">
+            <select id="filter-breed" onchange="filterData()">
+                <option value="all">All Breeds</option>
+                <option value="PO">PO</option>
+                <option value="Limousin">Limousin</option>
+                <option value="Simental">Simental</option>
+                <option value="Etawa">Etawa (Goat)</option>
+            </select>
+            <select><option>Any Weight</option><option>300-500 kg</option><option>500-800 kg</option></select>
+            <select><option>All Locations</option><option>Cisarua, West Java</option><option>East Java</option></select>
+            <select><option>Health Status</option><option>Verified</option></select>
+        </div>
+    </div>
+
+    <!-- Livestock Grid -->
+    <div class="grid" id="nft-grid">
+        
+        <!-- Card 1 (Cow - PO) -->
+        <div class="card" data-category="cow" data-breed="PO">
+            <span class="badge">Verified Certificate</span>
+            <span class="nft-id">NFT #28173</span>
+            <h3>Peranakan Ongole (PO)</h3>
+            <div class="details-grid">
+                <span><strong>Weight:</strong> 600 kg</span>
+                <span><strong>Age:</strong> 3 Years</span>
+                <span><strong>Gender:</strong> Male</span>
+                <span><strong>Location:</strong> Cisarua</span>
+            </div>
+            <span class="price">1,300 USDT</span>
+            <div class="btn-group">
+                <button class="action-btn" onclick="buy('PO', 1300)">Buy Now</button>
+                <button class="action-btn btn-secondary" onclick="alert('View Smart Contract')">On-Chain</button>
+            </div>
+        </div>
+
+        <!-- Card 2 (Cow - Limousin) -->
+        <div class="card" data-category="cow" data-breed="Limousin">
+            <span class="badge">Verified Certificate</span>
+            <span class="nft-id">NFT #28174</span>
+            <h3>Limousin</h3>
+            <div class="details-grid">
+                <span><strong>Weight:</strong> 850 kg</span>
+                <span><strong>Age:</strong> 4 Years</span>
+                <span><strong>Gender:</strong> Male</span>
+                <span><strong>Location:</strong> Cisarua</span>
+            </div>
+            <span class="price">2,800 USDT</span>
+            <div class="btn-group">
+                <button class="action-btn" onclick="buy('Limousin', 2800)">Buy Now</button>
+                <button class="action-btn btn-secondary" onclick="alert('View Smart Contract')">On-Chain</button>
+            </div>
+        </div>
+
+        <!-- Card 3 (Cow - Simental) -->
+        <div class="card" data-category="cow" data-breed="Simental">
+            <span class="badge">Verified Certificate</span>
+            <span class="nft-id">NFT #28175</span>
+            <h3>Simental</h3>
+            <div class="details-grid">
+                <span><strong>Weight:</strong> 720 kg</span>
+                <span><strong>Age:</strong> 3 Years</span>
+                <span><strong>Gender:</strong> Female</span>
+                <span><strong>Location:</strong> East Java</span>
+            </div>
+            <span class="price">2,600 USDT</span>
+            <div class="btn-group">
+                <button class="action-btn" onclick="buy('Simental', 2600)">Buy Now</button>
+                <button class="action-btn btn-secondary" onclick="alert('View Smart Contract')">On-Chain</button>
+            </div>
+        </div>
+
+        <!-- Card 4 (Goat - Etawa) -->
+        <div class="card" data-category="goat" data-breed="Etawa">
+            <span class="badge">Verified Certificate</span>
+            <span class="nft-id">NFT #28176</span>
+            <h3>Kambing Etawa</h3>
+            <div class="details-grid">
+                <span><strong>Weight:</strong> 80 kg</span>
+                <span><strong>Age:</strong> 2 Years</span>
+                <span><strong>Gender:</strong> Male</span>
+                <span><strong>Location:</strong> Central Java</span>
+            </div>
+            <span class="price">450 USDT</span>
+            <div class="btn-group">
+                <button class="action-btn" onclick="buy('Etawa', 450)">Buy Now</button>
+                <button class="action-btn btn-secondary" onclick="alert('View Smart Contract')">On-Chain</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+// Fungsi untuk pindah ke halaman buy.html
+function buy(breed, price) {
+    localStorage.setItem("selectedBreed", breed);
+    localStorage.setItem("selectedPrice", price);
+    window.location.href = "buy.html";
+}
+
+// Logika Filter (Category & Breed)
+const categoryButtons = document.querySelectorAll('.category-btn');
+const breedSelect = document.getElementById('filter-breed');
+const cards = document.querySelectorAll('.card');
+
+// Event Listener untuk Tombol Kategori
+categoryButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Hapus class 'active' dari semua tombol, pasang di tombol yang diklik
+        categoryButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Panggil fungsi filter data
+        filterData();
+    });
+});
+
+// Fungsi Utama untuk Menyaring Data
+function filterData() {
+    // 1. Ambil data kategori apa yang sedang aktif
+    const activeCategoryBtn = document.querySelector('.category-btn.active');
+    const selectedCategory = activeCategoryBtn.getAttribute('data-category');
+    
+    // 2. Ambil data breed apa yang sedang dipilih di dropdown
+    const selectedBreed = breedSelect.value;
+    
+    // 3. Cek setiap kartu NFT
+    cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        const cardBreed = card.getAttribute('data-breed');
+        
+        // Aturan cocok: apakah kategori cocok? apakah breed cocok?
+        const isCategoryMatch = (selectedCategory === 'all' || selectedCategory === cardCategory);
+        const isBreedMatch = (selectedBreed === 'all' || selectedBreed === cardBreed);
+        
+        // Jika cocok tampilkan (flex/block), jika tidak sembunyikan (none)
+        if (isCategoryMatch && isBreedMatch) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+</script>
+    <script src="assets/js/wallet.js"></script>
+    <script src="assets/js/app.js"></script>
+
+</body>
+</html>
