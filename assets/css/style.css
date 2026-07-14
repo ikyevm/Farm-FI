@@ -1,0 +1,38 @@
+/* =========================================
+   FARM-FI LAYER-1 : GLOBAL STYLES
+   ========================================= */
+
+/* Reset & Dasar Bodi */
+body { margin: 0; background: #08130d; color: #fff; font-family: Arial, sans-serif; }
+.container { padding: 20px; max-width: 1200px; margin: auto; }
+h1, h2, h3 { color: #fff; margin-top: 0; }
+a { color: #7ef0a6; text-decoration: none; font-weight: bold; transition: 0.3s; }
+a:hover { color: #18a558; }
+
+/* Header & Navigasi */
+header { display: flex; justify-content: space-between; align-items: center; background: #102017; padding: 15px 30px; border-bottom: 1px solid #163022; }
+nav { display: flex; gap: 20px; }
+
+/* Desain Tombol Global */
+button { padding: 12px 20px; border: none; border-radius: 8px; background: #18a558; color: #fff; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.3s; }
+button:hover { background: #7ef0a6; color: #08130d; }
+
+/* Desain Form (Kotak Isian) */
+label { font-size: 14px; color: #7ef0a6; display: block; margin-bottom: 8px; font-weight: bold; }
+input, select, textarea { width: 100%; padding: 12px; border-radius: 8px; border: none; background: #fff; color: #333; box-sizing: border-box; font-size: 14px; font-family: Arial, sans-serif; }
+textarea { resize: vertical; min-height: 100px; }
+.form-section { background: #163022; padding: 30px; border-radius: 12px; margin-top: 20px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.disabled-input { background: #ddd; color: #666; cursor: not-allowed; }
+
+/* Desain Kartu (NFT & Kotak Info) */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card { background: #163022; border-radius: 12px; padding: 20px; position: relative; display: block; }
+.badge { display: inline-block; background: #18a558; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: bold; margin-bottom: 10px; }
+.info-box { background: #102017; border-left: 4px solid #7ef0a6; padding: 15px; margin-bottom: 20px; font-size: 14px; color: #ccc; line-height: 1.5; }
+
+/* Responsif untuk HP */
+@media(max-width:600px) { 
+    .form-grid { grid-template-columns: 1fr; } 
+    header { flex-direction: column; gap: 15px; }
+}
