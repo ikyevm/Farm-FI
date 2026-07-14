@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sell Livestock - FarmFI RWA</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+<body>
+
+<header>
+    <h2>🏷️ FarmFI - Mint Asset</h2>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="marketplace.html">Marketplace</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Tokenize & Sell Livestock</h1>
+    <p style="color:#aaa">Convert your real-world livestock into an on-chain NFT asset to list on the marketplace.</p>
+
+    <div class="form-section">
+        <div class="info-box">
+            <strong>Note:</strong> All submitted data will be verified by our Oracle and Admin before the NFT is minted to the blockchain.
+        </div>
+
+        <div class="form-grid">
+            <div>
+                <label>Breed</label>
+                <select>
+                    <option>Peranakan Ongole (PO)</option>
+                    <option>Limousin</option>
+                    <option>Simental</option>
+                    <option>Bali</option>
+                    <option>Angus</option>
+                </select>
+            </div>
+            <div>
+                <label>Expected Price (USDT)</label>
+                <input type="number" placeholder="e.g. 1800">
+            </div>
+            <div>
+                <label>Weight (kg)</label>
+                <input type="number" placeholder="e.g. 620">
+            </div>
+            <div>
+                <label>Age (Years)</label>
+                <input type="number" placeholder="e.g. 3">
+            </div>
+            <div>
+                <label>Gender</label>
+                <select>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+            <div>
+                <label>Farm Location</label>
+                <input type="text" placeholder="e.g. Cisarua, West Java">
+            </div>
+            
+            <!-- Off-chain Data Uploads -->
+            <div>
+                <label>Health Certificate (PDF)</label>
+                <input type="file" accept=".pdf">
+            </div>
+            <div>
+                <label>Livestock Images</label>
+                <input type="file" accept="image/*" multiple>
+            </div>
+        </div>
+
+        <button onclick="mintAsset()">Mint NFT & List to Marketplace</button>
+    </div>
+</div>
+
+<script>
+function mintAsset() {
+    alert('Uploading metadata to IPFS...\nMinting RWA NFT transaction initiated!');
+}
+</script>
+    <script src="assets/js/wallet.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/sell.js"></script>
+
+</body>
+</html>
